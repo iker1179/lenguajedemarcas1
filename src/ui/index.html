@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Markup Protocol - Auditoría LMSGI UT-1</title>
+    <style>
+        :root {
+            --color-accent: #8e44ad;
+            --color-bg-light: #f5eef8;
+            --color-accent-rgb: 142, 68, 173;
+            --color-dark: #1e1e24;
+            --color-card: #272730;
+            --color-border: #3d3d4a;
+            --color-success: #27ae60;
+            --color-error: #c0392b;
+            --color-text: #ecf0f1;
+            --color-muted: #bdc3c7;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--color-dark);
+            color: var(--color-text);
+            line-height: 1.5;
+            padding: 24px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--color-accent);
+            padding-bottom: 16px;
+            margin-bottom: 24px;
+        }
+
+        .brand h1 {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .brand h1 span {
+            color: var(--color-accent);
+        }
+
+        .brand p {
+            font-size: 13px;
+            color: var(--color-muted);
+        }
+
+        .status-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(var(--color-accent-rgb), 0.15);
+            border: 1px solid var(--color-accent);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-family: 'Cascadia Code', Consolas, monospace;
+        }
+
+        .indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--color-success);
+            box-shadow: 0 0 8px var(--color-success);
+        }
+
+        .progress-section {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 18px 24px;
+            margin-bottom: 28px;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .progress-bar-bg {
+            background: #15151a;
+            border-radius: 6px;
+            height: 14px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            background: linear-gradient(90deg, var(--color-accent), #9b59b6);
+            height: 100%;
+            width: 0%;
+            transition: width 0.4s ease-in-out;
+        }
+
+        .missions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            margin-bottom: 28px;
+        }
+
+        .mission-card {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .mission-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(var(--color-accent-rgb), 0.6);
+        }
+
+        .mission-card.success {
+            border-left: 5px solid var(--color-success);
+        }
+
+        .mission-card.fail {
+            border-left: 5px solid var(--color-error);
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .mission-id {
+            font-family: 'Cascadia Code', Consolas, monospace;
+            font-size: 12px;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--color-muted);
+        }
+
+        .card-state {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .state-ok {
+            background: rgba(39, 174, 96, 0.2);
+            color: var(--color-success);
+            border: 1px solid var(--color-success);
+        }
+
+        .state-err {
+            background: rgba(192, 57, 43, 0.2);
+            color: var(--color-error);
+            border: 1px solid var(--color-error);
+        }
+
+        .mission-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .mission-msg {
+            font-size: 13px;
+            color: var(--color-muted);
+            margin-bottom: 12px;
+            min-height: 40px;
+        }
+
+        .mission-details {
+            font-family: 'Cascadia Code', Consolas, monospace;
+            font-size: 12px;
+            background: #17171d;
+            border: 1px solid #333;
+            border-radius: 4px;
+            padding: 8px;
+            color: #e74c3c;
+            margin-top: 8px;
+            white-space: pre-wrap;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 12px;
+            color: var(--color-muted);
+            border-top: 1px solid var(--color-border);
+            padding-top: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand">
+            <h1>The Markup <span>Protocol</span></h1>
+            <p>IES Pío Baroja &bull; DAM 1º &bull; LMSGI UT-1: Características y clasificación de los lenguajes de marcas</p>
+        </div>
+        <div class="status-badge">
+            <div class="indicator" id="live-indicator"></div>
+            <span id="conn-status">Sincronización en vivo</span>
+        </div>
+    </header>
+
+    <section class="progress-section">
+        <div class="progress-header">
+            <span>Progreso de auditoría</span>
+            <span id="progress-text">0 / 6 Misiones resueltas (0%)</span>
+        </div>
+        <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="progress-bar"></div>
+        </div>
+    </section>
+
+    <main class="missions-grid" id="missions-container">
+        <!-- Renderizado dinámico vía JavaScript -->
+    </main>
+
+    <footer>
+        Auditoría técnica local automatizada &bull; Cambia los archivos en <code>misiones/</code> y observa los resultados al instante.
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

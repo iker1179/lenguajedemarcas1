@@ -1,0 +1,14 @@
+{
+    nombre_nodo: 'Gateway-Principal-DMZ',
+    "ip_publica": "198.51.100.25",
+    "puertos_habilitados": [
+        80,
+        443,
+        8443,
+    ],
+    "modo_estricto": True,
+    "ssl": {
+        "certificado": "/etc/ssl/gateway.crt",
+        "clave_privada": "/etc/ssl/gateway.key"
+    }
+}

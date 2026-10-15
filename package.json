@@ -1,0 +1,25 @@
+{
+  "name": "lmsgi-protocol-ut1",
+  "version": "1.0.0",
+  "description": "Entorno interactivo de auditoría y depuración técnica para la UT-1 de Lenguajes de Marcas - IES Pío Baroja",
+  "type": "module",
+  "main": "src/engine/server.js",
+  "scripts": {
+    "test": "node test/runner.js",
+    "dev": "node src/engine/server.js",
+    "start": "node src/engine/server.js"
+  },
+  "keywords": [
+    "lmsgi",
+    "dam",
+    "xml",
+    "json",
+    "lenguajes-de-marcas",
+    "ies-pio-baroja"
+  ],
+  "author": "Departamento de Informática - IES Pío Baroja",
+  "license": "ISC",
+  "dependencies": {
+    "fast-xml-parser": "^4.3.6"
+  }
+}

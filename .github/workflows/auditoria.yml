@@ -1,0 +1,26 @@
+name: Auditoria de Calidad LMSGI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  verificacion-misiones:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar codigo fuente
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js 20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+
+      - name: Instalar dependencias de validacion
+        run: npm ci
+
+      - name: Ejecutar auditoria tecnica de misiones
+        run: npm test

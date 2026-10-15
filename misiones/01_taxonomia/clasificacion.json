@@ -1,0 +1,34 @@
+{
+  "lenguajes": {
+    "xml": {
+      "tipo_marcado": "PENDIENTE",
+      "proposito_principal": "Almacenamiento e intercambio estructurado de datos entre sistemas heterogéneos",
+      "desacoplamiento_presentacion": null
+    },
+    "html5": {
+      "tipo_marcado": "PENDIENTE",
+      "proposito_principal": "Estructuración semántica de contenidos para su renderizado en navegadores web",
+      "desacoplamiento_presentacion": null
+    },
+    "json": {
+      "tipo_marcado": "PENDIENTE",
+      "proposito_principal": "Formato ligero de intercambio de datos y serialización de objetos en APIs REST",
+      "desacoplamiento_presentacion": null
+    },
+    "yaml": {
+      "tipo_marcado": "PENDIENTE",
+      "proposito_principal": "Serialización legible de configuraciones de despliegue y pipelines CI/CD",
+      "desacoplamiento_presentacion": null
+    },
+    "latex": {
+      "tipo_marcado": "PENDIENTE",
+      "proposito_principal": "Composición tipográfica y edición de documentos científicos de alta calidad",
+      "desacoplamiento_presentacion": null
+    },
+    "postscript": {
+      "tipo_marcado": "PENDIENTE",
+      "proposito_principal": "Lenguaje de descripción de páginas orientado a dispositivos de impresión",
+      "desacoplamiento_presentacion": null
+    }
+  }
+}

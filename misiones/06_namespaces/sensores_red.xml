@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Mision 06: Resuelve la colision semantica declarando namespaces hw y net en <sistema> -->
+<sistema>
+    <componentes_fisicos>
+        <!-- Colision: este dispositivo es de hardware -->
+        <dispositivo>
+            <serie>HW-SN-9921</serie>
+            <temperatura>41.2</temperatura>
+        </dispositivo>
+    </componentes_fisicos>
+
+    <interfaces_logicas>
+        <!-- Colision: este dispositivo es una interfaz de red -->
+        <dispositivo>
+            <direccion_ip>10.0.1.50</direccion_ip>
+            <mascara>255.255.255.0</mascara>
+        </dispositivo>
+    </interfaces_logicas>
+</sistema>

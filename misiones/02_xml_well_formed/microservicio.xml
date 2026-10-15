@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<microservicio id=AUTH-SERVICE version="2.4.0">
+    <identificacion>
+        <nombre>Servicio de Autenticacion Central</nombre>
+        <entorno>produccion</entorno>
+    </identificacion>
+    <red>
+        <host>auth.cluster.internal</host>
+        <puerto>8443</Puerto>
+        <ssl habilitado="true"/>
+    </red>
+    <politicas>
+        <sesion timeout_minutos="15">
+            <max_reintentos>3
+        </sesion>
+    </politicas>
+</microservicio>
+<registro_auditoria nivel="INFO"/>
